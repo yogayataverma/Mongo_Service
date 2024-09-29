@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:17
 
 # Add Maintainer Info
 LABEL maintainer="yogayatajugnu@gmail.com"
