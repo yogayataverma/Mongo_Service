@@ -1,0 +1,5 @@
+com\yogayataverma\datastore\model\Model.class
+com\yogayataverma\datastore\repository\Repo.class
+com\yogayataverma\datastore\service\Service.class
+com\yogayataverma\datastore\controller\Controller.class
+com\yogayataverma\datastore\DatastoreApplication.class
