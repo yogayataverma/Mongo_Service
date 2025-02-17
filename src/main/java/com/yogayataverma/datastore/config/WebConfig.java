@@ -12,6 +12,7 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                System.out.println("Configuring CORS mappings...");
                 registry.addMapping("/**")
                         .allowedOrigins("http://127.0.0.1:5500") // ✅ Allow your frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
