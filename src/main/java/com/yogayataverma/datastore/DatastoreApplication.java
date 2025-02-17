@@ -8,5 +8,6 @@ public class DatastoreApplication {
  
   public static void main(String[] args) {
     SpringApplication.run(DatastoreApplication.class, args);
+    System.out.println("Configuring...");
   }
 }
