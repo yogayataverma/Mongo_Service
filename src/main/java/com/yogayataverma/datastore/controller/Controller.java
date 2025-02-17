@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
+@CrossOrigin(origins = "http://127.0.0.1:5500") // Allow frontend access
 @RestController
 @RequestMapping("/products")
 public class Controller {
