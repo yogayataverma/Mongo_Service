@@ -1,22 +1,37 @@
 package com.yogayataverma.datastore.controller;
 
-import com.yogayataverma.datastore.model.Model;
-import com.yogayataverma.datastore.service.Service;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.Base64;
-import java.util.List;
+import com.yogayataverma.datastore.model.Model;
+import com.yogayataverma.datastore.service.Service;
 
-@CrossOrigin(origins = "http://127.0.0.1:5500") // Allow frontend access
+// Controller.java
 @RestController
 @RequestMapping("/products")
+@CrossOrigin(
+    origins = {
+        "http://127.0.0.1:5500",
+        "http://localhost:5500",
+        "https://your-frontend-domain.com"
+    },
+    allowCredentials = "true"
+)
 public class Controller {
     @Autowired
     private Service service;

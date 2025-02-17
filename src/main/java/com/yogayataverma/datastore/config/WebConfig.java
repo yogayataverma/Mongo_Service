@@ -1,10 +1,4 @@
-package com.yogayataverma.datastore.config; // ✅ Updated package
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
+// WebConfig.java
 @Configuration
 public class WebConfig {
     @Bean
@@ -14,10 +8,15 @@ public class WebConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 System.out.println("Configuring CORS mappings...");
                 registry.addMapping("/**")
-                        .allowedOrigins("http://127.0.0.1:5500") // ✅ Allow your frontend
+                        .allowedOrigins(
+                            "http://127.0.0.1:5500",
+                            "http://localhost:5500",
+                            "https://your-frontend-domain.com" // Add your production frontend URL
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(true)
+                        .maxAge(3600); // Cache CORS config for 1 hour
             }
         };
     }
