@@ -15,18 +15,22 @@ public class DatastoreApplication {
   public static void main(String[] args) {
     SpringApplication.run(DatastoreApplication.class, args);
   }
-  
-  @Configuration
-  public class WebConfig {
+
+@Configuration
+public class WebConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {
-      return new WebMvcConfigurer() {
-        @Override
-        public void addCorsMappings(CorsRegistry registry) {
-          registry.addMapping("/**")
-                  .allowedOrigins("*"); // You can restrict allowed origins if needed
-        }
-      };
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://127.0.0.1:5500") // Update with frontend URL
+                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
+            }
+        };
     }
-  }
+}
+
 }
